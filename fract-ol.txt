@@ -1,0 +1,38 @@
+core requirement :
+
+1-fractar impliment : 
+* Mandelbrot set
+* Julia set
+* Both are mathematical sets of points in the complex plane 
+-----------------------------------------------------------
+2-program feartures
+-----------------------------------------------------------
+3-user controle :
+* Mouse wheel: Zoom in/out infinitely
+* ESC key: Close window
+* Window X button: Clean exit
+* Arrow keys (bonus): Move view
+-----------------------------------------------------------
+4-Rendring
+-----------------------------------------------------------
+5-Technical Requirements:
+* Use MiniLibX
+* Follow C Norm
+* No memory leaks
+* Proper Makefile
+* Error handling
+* Clean window management
+-----------------------------------------------------------
+6-Bonus feartures :
+* Additional fractal type
+* Mouse position-based zoom
+* Arrow key navigation
+* Color shifting
+-----------------------------------------------------------
+-----------------------------------------------------------
+7-Implementation Tips:
+* Use complex numbers for calculations
+* Implement smooth window management
+* Create efficient rendering algorithms
+* Handle user input properly
+* Add color gradients for depth visualization
