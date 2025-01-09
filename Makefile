@@ -19,8 +19,11 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-libft/%.o : libft/%.c libft.h
+libft/%.o : libft/%.c libft/libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
+
+fractol : main.c $(NAME)
+	$(CC) $(CFLAGS) -o fractol main.c libft.a
 
 bonus: $(OBJB)
 	ar rcs $(NAME) $(OBJB)
@@ -29,7 +32,7 @@ clean:
 	rm -rf $(OBJ) $(OBJB)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) fractol
 
 re: fclean all
 
