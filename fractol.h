@@ -6,44 +6,88 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/09 13:08:54 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:34:03 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACOL_H
-# define FRACOL_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
-# ifndef ERROR_MESSAGE
-#  define ERROR_MESSAGE "Please enter \n\t\"./fractol Mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n"
-# endif
-
-typedef struct s_img
-{
-	void	*img_ptr;
-	char	*pixels_ptr;
-	int bpp; // bit per pixel
-	int		endian;
-	int		line_len;
-}			t_img;
-
-typedef struct s_fractal
-{
-	void	*mlx_connection;
-	void	*mlx_win;
-
-}			t_factal;
-// typedef struct s_complex
-// {
-// 	//x
-// 	double real;
-// 	//imaginaire
-// 	double i;
-// }t_complex;
 # include "MLX/mlx.h"
 # include "libft/libft.h"
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+// colors
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define YELLOW 0xFFFF00
+# define PURPLE 0xFF00FF
+# define CYAN 0x00FFFF
+# define GRAY 0x808080
+# define ORANGE 0xFFA500
+# define HOT_PINK 0xFF69B4
+# define ELECTRIC_BLUE 0x00FF9F
+# define ACID_GREEN 0x7FFF00
+# define NEON_PURPLE 0x9400D3
+# define ELECTRIC_LIME 0xCCFF00
+# define PSYCHEDELIC_PURPLE 0xD300C9
+# define PLASMA_BLUE 0x00FFEF
+# define LASER_RED 0xFF003C
+# define UV_PURPLE 0x9B30FF
+# define TOXIC_GREEN 0x39FF14
+# define RADIOACTIVE_YELLOW 0xFFFF33
+# define COSMIC_PURPLE 0x6B3FA0
+# define NEON_ORANGE 0xFF6600
+# define ALIEN_GREEN 0x00FF8F
+# define SYNTHWAVE_PINK 0xFF10F0
+# define CYBER_CYAN 0x00FFFF
+# define PLASMA_MAGENTA 0xFF00CC
+# define VAPORWAVE_PURPLE 0xB19CD9
+# define DIGITAL_LIME 0xBFFF00
+# define QUANTUM_TURQUOISE 0x40E0D0
+
+# define ERROR_MESSAGE \
+	"Please enter \n\t\"./fractol Mandelbrot\" or \
+	\n\t\"./fractol julia <value_1> <value_2>\"\n"
+
+# define WIDTH 800
+# define HEIGHT 800
+
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*pixels_ptr;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}			t_img;
+
+typedef struct s_fractal
+{
+	char	*name;
+	void	*mlx_connection;
+	void	*mlx_win;
+	t_img	img;
+	double	escp_point;
+	int		iterat_num;
+}			t_fractal;
+
+typedef struct s_complex
+{
+	double	x;
+	double	y;
+}			t_complex;
+
+t_complex	squar_complex(t_complex z);
+void		fractal_init(t_fractal *fractal);
+void		fractal_render(t_fractal *fractal);
+t_complex	sum_complex(t_complex z, t_complex c);
+double		scale_value(int pixel, double min, double max, int dimension);
 
 #endif

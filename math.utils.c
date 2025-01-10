@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   math.utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 13:05:00 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/10 15:33:16 by aychikhi         ###   ########.fr       */
+/*   Created: 2025/01/09 19:23:37 by aychikhi          #+#    #+#             */
+/*   Updated: 2025/01/10 15:33:22 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int ac, char **av)
+double	scale_value(int pixel, double min, double max, int dimension)
 {
-	t_fractal	fractal;
+	return (min + (max - min) * ((double)pixel / (double)dimension));
+}
 
-	if ((ac == 2 && !ft_strncmp(av[1], "Mandelbrot", 10)) || (ac == 4
-			&& !ft_strncmp(av[1], "julia", 5)))
-	{
-		fractal.name = av[1];
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
-	}
-	else
-	{
-		ft_putstr_fd(ERROR_MESSAGE, 2);
-		exit(EXIT_FAILURE);
-	}
+t_complex	sum_complex(t_complex z, t_complex c)
+{
+	t_complex	res;
+
+	res.x = z.x + c.x;
+	res.y = z.y + c.y;
+	return (res);
+}
+
+t_complex	squar_complex(t_complex z)
+{
+	t_complex	res;
+
+	res.x = (z.x * z.x) - (z.y * z.y);
+	res.y = 2 * z.x * z.y;
+	return (res);
 }
