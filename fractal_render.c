@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:13:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/10 15:34:37 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/11 10:36:12 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void	handel_pixel(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = 0;
 	z.y = 0;
-	c.x = scale_value(x, -2, 2, WIDTH);
-	c.y = scale_value(y, 2, -2, HEIGHT);
+	c.x = scale_value(x, -2, 2, WIDTH) + fractal->shift_x;
+	c.y = scale_value(y, 2, -2, HEIGHT) + fractal ->shift_y;
 	while (i < fractal->iterat_num)
 	{
 		z = sum_complex(squar_complex(z), c);

@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:22:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/10 15:34:13 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/11 10:35:14 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ static void	data_init(t_fractal *fractal)
 {
 	fractal->escp_point = 4;
 	fractal->iterat_num = 100;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
+}
+
+static void event_init(t_fractal *fractal)
+{
+	mlx_hook(fractal->mlx_win, KeyPress, KeyPressMask, key_fun, fractal);
+	// mlx_hook(fractal->mlx_win, ButtonPress, ButtonPressMask, mouse_fun(), fractal);	
+	// mlx_hook(fractal->mlx_win, DestroyNotify, StructureNotifyMask, close_fun(), fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -42,6 +51,6 @@ void	fractal_init(t_fractal *fractal)
 	}
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,
 			&fractal->img.bpp, &fractal->img.line_len, &fractal->img.endian);
-	// event_init();
+	event_init(fractal);
 	data_init(fractal);
 }

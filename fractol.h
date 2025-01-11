@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/10 15:34:03 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/11 11:32:51 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 # define FRACTOL_H
 
 # include "MLX/mlx.h"
-# include "libft/libft.h"
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libX11/include/X11/X.h"
+
+#define ESC_KEY 53
+#define UP_KEY 126
+#define DOWN_KEY 125
+#define LEFT_KEY 123
+#define RIGHT_KEY 124
 
 // colors
 # define BLACK 0x000000
@@ -76,6 +82,8 @@ typedef struct s_fractal
 	t_img	img;
 	double	escp_point;
 	int		iterat_num;
+	double	shift_x;
+	double	shift_y;
 }			t_fractal;
 
 typedef struct s_complex
@@ -85,9 +93,12 @@ typedef struct s_complex
 }			t_complex;
 
 t_complex	squar_complex(t_complex z);
+void		ft_putstr_fd(char *s, int fd);
 void		fractal_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 t_complex	sum_complex(t_complex z, t_complex c);
+int			key_fun(int keysym, t_fractal *fractal);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		scale_value(int pixel, double min, double max, int dimension);
 
 #endif

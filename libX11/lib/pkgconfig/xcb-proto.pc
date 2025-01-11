@@ -1,0 +1,11 @@
+prefix=/mingw
+exec_prefix=${prefix}
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+libdir=${exec_prefix}/lib
+xcbincludedir=${datadir}/xcb
+pythondir=${prefix}\Lib\site-packages
+
+Name: XCB Proto
+Description: X protocol descriptions for XCB
+Version: 1.7
