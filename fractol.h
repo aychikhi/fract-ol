@@ -6,25 +6,28 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/11 11:32:51 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/11 12:54:43 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "MLX/mlx.h"
+# include "mlx.h"
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "libX11/include/X11/X.h"
 
-#define ESC_KEY 53
-#define UP_KEY 126
-#define DOWN_KEY 125
-#define LEFT_KEY 123
-#define RIGHT_KEY 124
+# define ESC_KEY 53
+# define UP_KEY 126
+# define DOWN_KEY 125
+# define LEFT_KEY 123
+# define RIGHT_KEY 124
+# define PLUS_KEY 69
+# define MINUS_KEY 78
+# define MOUSE_BUTTON_UP 5
+# define MOUSE_BUTTON_DOWN 4
 
 // colors
 # define BLACK 0x000000
@@ -84,6 +87,7 @@ typedef struct s_fractal
 	int		iterat_num;
 	double	shift_x;
 	double	shift_y;
+	double	zoom;
 }			t_fractal;
 
 typedef struct s_complex
@@ -99,6 +103,7 @@ void		fractal_render(t_fractal *fractal);
 t_complex	sum_complex(t_complex z, t_complex c);
 int			key_fun(int keysym, t_fractal *fractal);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			mouse_fun(int button, int x, int y, t_fractal *fractol);
 double		scale_value(int pixel, double min, double max, int dimension);
 
 #endif
