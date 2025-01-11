@@ -6,14 +6,14 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/11 12:54:43 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/11 13:31:25 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx.h"
+# include "MLX/mlx.h"
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
