@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:13:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/11 12:54:13 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 11:40:55 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ static void	put_pixel(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
+static void	mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
+{
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+}
+
 static void	handel_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -28,10 +42,9 @@ static void	handel_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = 0;
-	z.y = 0;
-	c.x = (scale_value(x, -2, 2, WIDTH) * fractal->zoom) + fractal->shift_x;
-	c.y = (scale_value(y, 2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	z.x = (scale_value(x, -2, 2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (scale_value(y, 2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	mandelbrot_or_julia(&z, &c, fractal);
 	while (i < fractal->iterat_num)
 	{
 		z = sum_complex(squar_complex(z), c);

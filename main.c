@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:05:00 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/10 15:33:16 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 11:45:06 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int	main(int ac, char **av)
 			&& !ft_strncmp(av[1], "julia", 5)))
 	{
 		fractal.name = av[1];
+		if (ac == 4)
+		{
+			fractal.julia_x = atod(av[2]);
+			fractal.julia_y = atod(av[3]);
+		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
