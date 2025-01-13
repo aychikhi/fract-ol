@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:57:11 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/11 13:01:01 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:00:43 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,10 +142,8 @@ int				mlx_destroy_image(void *mlx_ptr, void *img_ptr);
 **    can be hooked. Some macro and defines from X11/X.h are needed here.
 */
 
-// int				mlx_hook(void *win_ptr, int x_event, int x_mask,
-					// int (*funct)(),
-// 					void *param);˙
-
+int				mlx_hook(void *win_ptr, int x_event, int x_mask, int (*funct)(),
+					void *param);
 int				mlx_mouse_hide(void);
 int				mlx_mouse_show(void);
 int				mlx_mouse_move(void *win_ptr, int x, int y);

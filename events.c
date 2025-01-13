@@ -6,11 +6,20 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:48:09 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/11 12:55:52 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:33:01 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int	close_win(t_fractal *fractal)
+{
+	mlx_destroy_window(fractal->mlx_connection, fractal->mlx_win);
+	mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
+	free(fractal->mlx_connection);
+	exit(0);
+	return (0);
+}
 
 int	key_fun(int keycode, t_fractal *fractal)
 {
@@ -25,9 +34,9 @@ int	key_fun(int keycode, t_fractal *fractal)
 	else if (keycode == DOWN_KEY)
 		fractal->shift_y += (0.5 * fractal->zoom);
 	else if (keycode == LEFT_KEY)
-		fractal->shift_x -= (0.5 * fractal->zoom);
-	else if (keycode == RIGHT_KEY)
 		fractal->shift_x += (0.5 * fractal->zoom);
+	else if (keycode == RIGHT_KEY)
+		fractal->shift_x -= (0.5 * fractal->zoom);
 	else if (keycode == PLUS_KEY)
 		fractal->iterat_num += 10;
 	else if (keycode == MINUS_KEY)

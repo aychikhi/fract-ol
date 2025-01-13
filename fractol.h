@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/12 15:40:16 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:33:26 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct s_complex
 double		atod(char *str);
 t_complex	squar_complex(t_complex z);
 void		ft_putstr_fd(char *s, int fd);
+int			close_win(t_fractal *fractal);
 void		fractal_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 t_complex	sum_complex(t_complex z, t_complex c);

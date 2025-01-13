@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:22:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/11 12:53:58 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:32:27 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	event_init(t_fractal *fractal)
 {
 	mlx_key_hook(fractal->mlx_win, key_fun, fractal);
 	mlx_mouse_hook(fractal->mlx_win, mouse_fun, fractal);
+	mlx_hook(fractal->mlx_win, 17, 0, close_win, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -46,7 +47,6 @@ void	fractal_init(t_fractal *fractal)
 	{
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_win);
 		mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
-		free(fractal->mlx_connection);
 		malloc_error();
 	}
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,

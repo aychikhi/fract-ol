@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:13:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/13 11:40:55 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:16:12 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	handel_pixel(int x, int y, t_fractal *fractal)
 		z = sum_complex(squar_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escp_point)
 		{
-			color = scale_value(i, BLACK, WHITE, fractal->iterat_num);
+			color = scale_value(i, GRAY, WHITE, fractal->iterat_num);
 			put_pixel(x, y, &fractal->img, color);
 			return ;
 		}
