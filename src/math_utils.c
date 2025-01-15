@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:23:37 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/12 16:09:42 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:16:14 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 double	scale_value(int pixel, double min, double max, int dimension)
 {

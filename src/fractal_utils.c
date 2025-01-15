@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 10:53:54 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/13 12:32:20 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:16:07 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 static void	ft_putchar_fd(char c, int fd)
 {

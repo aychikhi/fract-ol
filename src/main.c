@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:05:00 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/13 17:16:23 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/15 12:55:28 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	main(int ac, char **av)
 {

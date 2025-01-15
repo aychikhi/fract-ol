@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:48:09 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/13 17:50:25 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:21:39 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	close_win(t_fractal *fractal)
 {
