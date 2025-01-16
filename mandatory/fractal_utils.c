@@ -6,23 +6,24 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 10:53:54 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/14 12:16:07 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:43:17 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-static void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	i;
+
 	if (!s || fd < 0)
 		return ;
-	while (*s)
-		ft_putchar_fd(*s++, fd);
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -52,13 +53,22 @@ static double	convert(char *str, int i)
 
 	pow = 1;
 	res = 0;
-	while (str[i] &&( str[i] >= '0' && str[i] <= '9'))
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
 		pow /= 10;
 		res = res + (str[i] - 48) * pow;
 		i++;
 	}
 	return (res);
+}
+
+static int	check_num(char *str, int i)
+{
+	while ((str[i] >= '0' && str[i] <= '9') || str[i] == '.')
+		i++;
+	if (str[i] != '\0')
+		return (0);
+	return (1);
 }
 
 double	atod(char *str)
@@ -77,6 +87,8 @@ double	atod(char *str)
 			sign = -1;
 		i++;
 	}
+	if (check_num(str, i) == 0)
+		return (0);
 	con_int = 0;
 	while (str[i] != '.' && str[i])
 	{

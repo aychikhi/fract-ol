@@ -2,10 +2,10 @@ EXEC = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/main.c src/fractal_utils.c src/fractal_init.c src/fractal_render.c src/math_utils.c src/events.c\
+SRC = mandatory/main.c mandatory/fractal_utils.c mandatory/fractal_init.c mandatory/fractal_render.c mandatory/math_utils.c mandatory/events.c\
 
-SRCB = src_bonus/main_bonus.c src_bonus/fractal_utils_bonus.c src_bonus/fractal_init_bonus.c \
-		src_bonus/fractal_render_bonus.c src_bonus/math_utils_bonus.c src_bonus/events_bonus.c\
+SRCB = bonus/main_bonus.c bonus/fractal_utils_bonus.c bonus/fractal_init_bonus.c \
+		bonus/fractal_render_bonus.c bonus/math_utils_bonus.c bonus/events_bonus.c\
 
 OBJ = $(SRC:.c=.o)
 

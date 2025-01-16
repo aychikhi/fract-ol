@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:05:00 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/15 12:38:56 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:06:48 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	main(int ac, char **av)
 	t_fractal	fractal;
 
 	if ((ac == 2 && !ft_strncmp(av[1], "Mandelbrot", 10)) || (ac == 4
-			&& !ft_strncmp(av[1], "julia", 5)) || (ac == 2 && !ft_strncmp(av[1],  "burning_ship", 12)))
+			&& !ft_strncmp(av[1], "julia", 5)) || (ac == 2 && !ft_strncmp(av[1],
+				"burning_ship", 12)))
 	{
 		fractal.name = av[1];
 		if (ac == 4)

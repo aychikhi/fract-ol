@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/15 10:30:45 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:22:55 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ t_complex	squar_complex(t_complex z);
 void		ft_putstr_fd(char *s, int fd);
 int			close_win(t_fractal *fractal);
 void		fractal_init(t_fractal *fractal);
+// void		init_burn_data_cz_norm(t_complex z);
 void		fractal_render(t_fractal *fractal);
 t_complex	sum_complex(t_complex z, t_complex c);
 int			key_fun(int keysym, t_fractal *fractal);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractal_render.c                                   :+:      :+:    :+:   */
+/*   fractal_render_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:13:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/14 12:57:54 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:46:25 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	put_pixel(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
-static void burning_ship(t_complex *z, t_complex *c)
+static void	burning_ship(t_complex *z, t_complex *c)
 {
-    c->x = z->x;
-    c->y = z->y;
+	c->x = z->x;
+	c->y = z->y;
 }
 
 static void	mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
@@ -34,9 +34,9 @@ static void	mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 		c->y = fractal->julia_y;
 	}
 	else if (!ft_strncmp(fractal->name, "burning_ship", 12))
-    {
-        burning_ship(z, c);
-    }
+	{
+		burning_ship(z, c);
+	}
 	else
 	{
 		c->x = z->x;
@@ -51,25 +51,24 @@ static void	handel_pixel(int x, int y, t_fractal *fractal)
 	int			i;
 	int			color;
 
-	i = 0;
+	i = -1;
 	z.x = (scale_value(x, -2, 2, WIDTH) * fractal->zoom) + fractal->shift_x;
 	z.y = (scale_value(y, 2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	mandelbrot_or_julia(&z, &c, fractal);
-	while (i < fractal->iterat_num)
+	while (++i < fractal->iterat_num)
 	{
 		if (!ft_strncmp(fractal->name, "burning_ship", 12))
-			{
-				z.x = fabs(z.x);
-				z.y = -fabs(z.y);
-			}
+		{
+			z.x = fabs(z.x);
+			z.y = -fabs(z.y);
+		}
 		z = sum_complex(squar_complex(z), c);
-		if ((z.x * z.x) + (z.y * z.y) > fractal->escp_point) 
+		if ((z.x * z.x) + (z.y * z.y) > fractal->escp_point)
 		{
 			color = scale_value(i, BLACK, WHITE, fractal->iterat_num);
 			put_pixel(x, y, &fractal->img, color);
 			return ;
 		}
-		i++;
 	}
 	put_pixel(x, y, &fractal->img, BLACK);
 }

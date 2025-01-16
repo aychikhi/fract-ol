@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   events_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:48:09 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/15 11:21:39 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:00:54 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ int	mouse_fun(int button, int x, int y, t_fractal *fractol)
 	double			mouse_y;
 	const double	zoom_factor = 0.1;
 
-	mouse_x = fractol->shift_x + (x * (fractol->zoom / WIDTH));
-	mouse_y = fractol->shift_y + (y * (fractol->zoom / HEIGHT));
+	mouse_x = (((double)x / WIDTH) * 4.0 - 2.0) * fractol->zoom
+		+ fractol->shift_x;
+	mouse_y = (((double)y / HEIGHT) * 4.0 - 2.0) * fractol->zoom
+		+ fractol->shift_y;
 	if (button == 4)
 	{
 		fractol->zoom *= (1 - zoom_factor);
@@ -60,8 +62,10 @@ int	mouse_fun(int button, int x, int y, t_fractal *fractol)
 	{
 		fractol->zoom *= (1 + zoom_factor);
 	}
-	fractol->shift_x = mouse_x - (x * (fractol->zoom / WIDTH));
-	fractol->shift_y = mouse_y - (y * (fractol->zoom / HEIGHT));
+	fractol->shift_x = mouse_x - (((double)x / WIDTH) * 4.0 - 2.0)
+		* fractol->zoom;
+	fractol->shift_y = mouse_y - (((double)y / HEIGHT) * 4.0 - 2.0)
+		* fractol->zoom;
 	fractal_render(fractol);
 	return (0);
 }
