@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 10:53:54 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/17 11:40:28 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:19:35 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ static int	check_num(char *str, int i)
 {
 	while ((str[i] >= '0' && str[i] <= '9') || str[i] == '.')
 		i++;
-	if (str[i] == '\0')
-		return (0);
-	return (1);
+	if (!str[i + 1] || !str[i])
+		return (1);
+	return (0);
 }
 
 double	atod(char *str)
@@ -90,7 +90,7 @@ double	atod(char *str)
 	if (check_num(str, i) == 0)
 		return (0);
 	con_int = 0;
-	while (str[i] != '.' && str[i])
+	while (str[i] != '.' && str[i] >= '0' && str[i] <= '9')
 	{
 		con_int = con_int * 10 + (str[i] - 48);
 		i++;

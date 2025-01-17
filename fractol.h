@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/16 11:22:55 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:29:42 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "MLX/mlx.h"
 # include <math.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -29,7 +28,6 @@
 # define MOUSE_BUTTON_UP 5
 # define MOUSE_BUTTON_DOWN 4
 
-// colors
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
@@ -68,15 +66,6 @@
 # define WIDTH 800
 # define HEIGHT 800
 
-typedef struct s_img
-{
-	void	*img_ptr;
-	char	*pixels_ptr;
-	int		bpp;
-	int		endian;
-	int		line_len;
-}			t_img;
-
 typedef struct s_fractal
 {
 	char	*name;
@@ -92,6 +81,15 @@ typedef struct s_fractal
 	double	julia_y;
 }			t_fractal;
 
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*pixels_ptr;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}			t_img;
+
 typedef struct s_complex
 {
 	double	x;
@@ -103,7 +101,6 @@ t_complex	squar_complex(t_complex z);
 void		ft_putstr_fd(char *s, int fd);
 int			close_win(t_fractal *fractal);
 void		fractal_init(t_fractal *fractal);
-// void		init_burn_data_cz_norm(t_complex z);
 void		fractal_render(t_fractal *fractal);
 t_complex	sum_complex(t_complex z, t_complex c);
 int			key_fun(int keysym, t_fractal *fractal);
