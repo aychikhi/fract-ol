@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:22:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/15 13:21:53 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:17:24 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	fractal_init(t_fractal *fractal)
 			fractal->name);
 	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, WIDTH,
 			HEIGHT);
-	if (fractal->img.img_ptr == NULL)
+	if (fractal->img.img_ptr == NULL || fractal->mlx_win == NULL)
 	{
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_win);
 		mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
