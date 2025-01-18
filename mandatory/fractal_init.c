@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:22:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/16 16:16:48 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:38:24 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	malloc_error(void)
 {
-	perror("problem with malloc");
+	ft_putstr_fd("problem with malloc", 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -22,8 +22,6 @@ static void	data_init(t_fractal *fractal)
 {
 	fractal->escp_point = 4;
 	fractal->iterat_num = 100;
-	fractal->shift_x = 0.0;
-	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
 }
 

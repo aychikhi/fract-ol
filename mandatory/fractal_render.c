@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:13:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/17 11:35:06 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 11:47:01 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	handel_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = (scale_value(x, -2, 2, WIDTH) * fractal->zoom) + fractal->shift_x;
-	z.y = (scale_value(y, 2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	z.x = (scale_value(x, -2, 2, WIDTH) * fractal->zoom);
+	z.y = (scale_value(y, 2, -2, HEIGHT) * fractal->zoom);
 	mandelbrot_or_julia(&z, &c, fractal);
 	while (i < fractal->iterat_num)
 	{

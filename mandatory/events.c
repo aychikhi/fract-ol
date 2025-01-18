@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:48:09 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/16 12:59:58 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:30:43 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,40 +28,17 @@ int	key_fun(int keycode, t_fractal *fractal)
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_win);
 		exit(0);
 	}
-	else if (keycode == UP_KEY)
-		fractal->shift_y -= (0.5 * fractal->zoom);
-	else if (keycode == DOWN_KEY)
-		fractal->shift_y += (0.5 * fractal->zoom);
-	else if (keycode == LEFT_KEY)
-		fractal->shift_x += (0.5 * fractal->zoom);
-	else if (keycode == RIGHT_KEY)
-		fractal->shift_x -= (0.5 * fractal->zoom);
-	else if (keycode == PLUS_KEY)
-		fractal->iterat_num += 10;
-	else if (keycode == MINUS_KEY)
-		fractal->iterat_num -= 10;
-	fractal_render(fractal);
 	return (0);
 }
 
 int	mouse_fun(int button, int x, int y, t_fractal *fractol)
 {
-	double			mouse_x;
-	double			mouse_y;
-	const double	zoom_factor = 0.1;
-
-	mouse_x = (((double)x / WIDTH)) * fractol->zoom + fractol->shift_x;
-	mouse_y = (((double)y / HEIGHT)) * fractol->zoom + fractol->shift_y;
+	x = (int)x;
+	y = (int)y;
 	if (button == 4)
-	{
-		fractol->zoom *= (1 - zoom_factor);
-	}
+		fractol->zoom *= 0.9;
 	else if (button == 5)
-	{
-		fractol->zoom *= (1 + zoom_factor);
-	}
-	fractol->shift_x = mouse_x - (((double)x / WIDTH)) * fractol->zoom;
-	fractol->shift_y = mouse_y - (((double)y / HEIGHT)) * fractol->zoom;
+		fractol->zoom *= 1.1;
 	fractal_render(fractol);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/17 12:29:42 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 10:42:44 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "MLX/mlx.h"
 # include <math.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 
 # define ESC_KEY 53
@@ -66,6 +67,15 @@
 # define WIDTH 800
 # define HEIGHT 800
 
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*pixels_ptr;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}			t_img;
+
 typedef struct s_fractal
 {
 	char	*name;
@@ -80,15 +90,6 @@ typedef struct s_fractal
 	double	julia_x;
 	double	julia_y;
 }			t_fractal;
-
-typedef struct s_img
-{
-	void	*img_ptr;
-	char	*pixels_ptr;
-	int		bpp;
-	int		endian;
-	int		line_len;
-}			t_img;
 
 typedef struct s_complex
 {

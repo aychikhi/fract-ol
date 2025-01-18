@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:22:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/16 16:17:24 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 11:11:17 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	malloc_error(void)
 {
-	perror("problem with malloc");
+	ft_putstr_fd("problem with malloc", 2);
 	exit(EXIT_FAILURE);
 }
 
