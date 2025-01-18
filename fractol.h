@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:04:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/18 10:42:44 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:49:11 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "MLX/mlx.h"
 # include <math.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
 
 # define ESC_KEY 53
@@ -61,8 +60,11 @@
 # define QUANTUM_TURQUOISE 0x40E0D0
 
 # define ERROR_MESSAGE \
-	"Please enter \n\t\"./fractol Mandelbrot\" or \
+	"Please enter \n\t\"./fractol mandelbrot\" or \
 	\n\t\"./fractol julia <value_1> <value_2>\"\n"
+# define ERROR_MESSAGE_BONUS \
+	"Please enter \n\t\"./fractol mandelbrot\" or \
+	\n\t\"./fractol julia <value_1> <value_2>\" or \n\t\"./fractol burning_ship\"\n"
 
 # define WIDTH 800
 # define HEIGHT 800

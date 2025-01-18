@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:05:00 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/01/15 13:06:48 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:48:22 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_fractal	fractal;
 
-	if ((ac == 2 && !ft_strncmp(av[1], "Mandelbrot", 10)) || (ac == 4
+	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) || (ac == 4
 			&& !ft_strncmp(av[1], "julia", 5)) || (ac == 2 && !ft_strncmp(av[1],
 				"burning_ship", 12)))
 	{
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		ft_putstr_fd(ERROR_MESSAGE, 2);
+		ft_putstr_fd(ERROR_MESSAGE_BONUS, 2);
 		exit(EXIT_FAILURE);
 	}
 }
